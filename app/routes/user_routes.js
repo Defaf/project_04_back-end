@@ -4,10 +4,10 @@ const crypto = require('crypto')
 // Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport')
 // bcrypt docs: https://github.com/kelektiv/node.bcrypt.js
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 // see above for explanation of "salting", 10 rounds is recommended
-const bcryptSaltRounds = 10
+const bcryptSaltRounds = bcrypt.genSaltSync(10)
 
 // pull in error types and the logic to handle them and set status codes
 const errors = require('../../lib/custom_errors')
