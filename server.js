@@ -7,6 +7,7 @@ const cors = require('cors')
 // require route files
 const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
+const gameRoutes = require('./app/routes/game_routes')
 
 // require error handling middleware
 const errorHandler = require('./lib/error_handler')
@@ -65,6 +66,7 @@ app.use(requestLogger)
 // register route files
 app.use(exampleRoutes)
 app.use(userRoutes)
+// app.use(gameRoutes)
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
@@ -72,9 +74,7 @@ app.use(userRoutes)
 app.use(errorHandler)
 
 // run API on designated port (3000 in this case)
-app.listen(port, () => {
-  console.log('listening on port ' + port)
-})
+app.listen(expressPort, () => {console.log("Hey You're server is running on port "+ expressPort)})
 
 // needed for testing
 module.exports = app
